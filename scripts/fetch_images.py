@@ -16,7 +16,7 @@ def get_train_set_path(path: str):
     return create_path
 
 
-def create_train_set_dir(path='train-set'):
+def create_train_set_dir(path='auth-set'):
     create_path = get_train_set_path(path)
     is_existed = os.path.exists(create_path)
     if not is_existed:
@@ -36,7 +36,7 @@ def gen_image_all_url(path):
     return '{}/{}.png'.format(path, gen_image_name(rule))
 
 
-def get_image(url, count=20000, path='train-set'):
+def get_image(url, count=20000, path='auth-set'):
     create_train_set_dir(path)
     for loop in range(count):
         response = requests.get(url, verify=False, stream=True)
@@ -48,7 +48,7 @@ def get_image(url, count=20000, path='train-set'):
 
 
 def main():
-    get_image('https://gray.930pm.cn/home.php/Login/verify_c', path='train-set')
+    get_image('https://gray.930pm.cn/home.php/Login/verify_c', path='auth-set')
 
 
 if __name__ == '__main__':

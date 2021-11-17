@@ -1,7 +1,7 @@
 from sanic import Blueprint
 from sanic.response import json
 from help.utils import join_root_path
-from handler.train import get_images
+from handler.auth import get_images
 from models.verify import Verify
 from sanic import Request
 from sanic_openapi import doc
@@ -10,7 +10,7 @@ from json import loads
 import random
 
 image = Blueprint("train_image", url_prefix="/images")
-image.static('/static', join_root_path('train-set'))
+image.static('/static', join_root_path('auth-set'))
 
 
 @image.get('/get')
@@ -37,7 +37,7 @@ async def get_verify_code(request: Request):
     for verify in new_verifys:
         item = {"id": str(verify.get("id")),
                 "identifyPrefix": verify.get("identify_prefix", None),
-                "verifyUrl": "/api/train/images/static/{}_{}".format(verify.get("initial_prefix"),
+                "verifyUrl": "/api/auth/images/static/{}_{}".format(verify.get("initial_prefix"),
                                                                      verify.get("suffix"))}
         images.append(item)
     return json(

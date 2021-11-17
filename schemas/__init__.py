@@ -4,4 +4,4 @@
 # datetime: 2021-06-22 23:12
 # software: PyCharm
 
-from .train import *
+from .auth import *

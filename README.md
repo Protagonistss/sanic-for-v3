@@ -1,8 +1,10 @@
 ### fetch data
 
 #### need read
+
+#### install
 ```bash
-python fetch_images.py
+conda env create -f requirements.yml
 ```
 
 #### db setup
