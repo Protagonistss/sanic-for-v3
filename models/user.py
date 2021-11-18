@@ -10,9 +10,15 @@ from tortoise import fields
 
 class User(Model):
     id = fields.UUIDField(pk=True)
-    name = fields.TextField()
-    mobile = fields.IntField()
+    username = fields.TextField()
+    email = fields.TextField()
     nickname = fields.TextField()
 
-    def __str__(self):
-        return '用户{}已经创建，手机号为{}'.format(self.name, self.mobile)
+    class Meta:
+        table = "user"
+
+    def __repr__(self):
+        return "User(id='{}')".format(self.id)
+
+    def to_dict(self):
+        return {"id": self.id, "username": self.username, "email": self.email, "nickname": self.nickname}

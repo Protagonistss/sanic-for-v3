@@ -16,7 +16,7 @@ TORTOISE_ORM = {
                                                    MYSQL_SETTING.get('port'), MYSQL_SETTING.get('db'))},
     "apps": {
         "models": {
-            "models": ["aerich.models", "models.user", "models.verify"],
+            "models": ["aerich.models", "models.user"],
             "default_connection": "default",
         }
     }

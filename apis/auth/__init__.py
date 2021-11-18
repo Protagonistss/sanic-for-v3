@@ -1,4 +1,4 @@
 from sanic import Blueprint
-from .image import image
+from .login import login
 
-train = Blueprint.group(image, url_prefix="/auth")
+login = Blueprint.group(login, url_prefix="/auth")

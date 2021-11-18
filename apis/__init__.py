@@ -1,4 +1,4 @@
 from sanic import Blueprint
-from .auth import train
+from .auth import login
 
-apis = Blueprint.group(train, url_prefix="/api")
+apis = Blueprint.group(login, url_prefix="/api")
