@@ -1,17 +1,13 @@
 name: sanic-for-v3
 channels:
   - https://repo.anaconda.com/pkgs/main
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-  - https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
   - conda-forge
   - defaults
 dependencies:
   - aiofiles=0.7.0=pyhd8ed1ab_0
   - ca-certificates=2021.10.26=hecd8cb5_2
   - cffi=1.14.6=py38h2125817_0
-  - cryptography=35.0.0=py38h2fd3fbb_0
+  - cryptography=3.4.8=py38h2fd3fbb_0
   - libcxx=12.0.0=h2f01273_0
   - libffi=3.3=hb1e8313_2
   - libuv=1.42.0=h0d85af4_0
@@ -19,6 +15,7 @@ dependencies:
   - openssl=1.1.1l=h9ed2024_0
   - pip=21.2.4=py38hecd8cb5_0
   - pycparser=2.21=pyhd3eb1b0_0
+  - pyjwt=2.1.0=py38hecd8cb5_0
   - python=3.8.12=h88f2d9e_0
   - python_abi=3.8=2_cp38
   - readline=8.1=h9ed2024_0
@@ -51,7 +48,6 @@ dependencies:
     - opencv-python==4.5.2.54
     - pillow==8.2.0
     - pydantic==1.8.2
-    - pyjwt==2.1.0
     - pymysql==0.9.3
     - pyparsing==2.4.7
     - pypika-tortoise==0.1.1
@@ -60,7 +56,6 @@ dependencies:
     - pyyaml==5.4.1
     - requests==2.25.1
     - sanic==21.3.4
-    - sanic-jwt==1.7.0
     - sanic-openapi==21.3.2
     - sanic-routing==0.6.2
     - schematics==2.1.0
