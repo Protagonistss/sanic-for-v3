@@ -3,9 +3,10 @@ from sanic.response import json
 from sanic import Request
 from sanic_openapi import doc
 from schemas import UserSubmitModel
-from sanic_jwt import exceptions
+from handler.auth import gen_token
+import datetime
 
-login = Blueprint("Login", url_prefix="/login")
+login = Blueprint("auth", url_prefix="/login")
 
 
 @login.post('/submit')
@@ -13,9 +14,12 @@ login = Blueprint("Login", url_prefix="/login")
 async def user_login(request: Request):
     username = request.json.get("username", "")
     password = request.json.get("password", "")
-    if not username or not password:
-        raise exceptions.AuthenticationFailed("Missing username or password")
+    token = gen_token(payload={"exp": datetime.datetime.now() + datetime.timedelta(days=1),
+                               "iat": datetime.datetime.now(), },
+                      data={"username": username, "password": password})
     return json({
-        "username": username,
-        "password": password
+        "code": 200,
+        "data": {
+            "token": token
+        }
     })
