@@ -19,6 +19,7 @@ async def user_login(request: Request):
                       data={"username": username, "password": password})
     return json({
         "code": 200,
+        "msg": "success",
         "data": {
             "token": token
         }
