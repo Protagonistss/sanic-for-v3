@@ -4,10 +4,11 @@
 # datetime: 11/20/21 9:13 AM
 # software: PyCharm
 
-from sanic import Blueprint, Request
+from sanic import Blueprint, Request, response
 from sanic_openapi import doc
-from handler.auth import login_required
 from schemas.auth import UserSubmitModel
+from handler.auth import login_required
+from handler.response import ResponseHandler
 
 user = Blueprint("user", url_prefix="account")
 
@@ -16,7 +17,8 @@ user = Blueprint("user", url_prefix="account")
 @doc.consumes({"data": UserSubmitModel}, location="body")
 @doc.summary("用户注册")
 async def regist_user(request: Request):
-    pass
+    data = ResponseHandler.to_dict(code=200)
+    return response.json(data)
 
 
 @user.get("get")

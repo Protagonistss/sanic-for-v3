@@ -5,7 +5,7 @@
 # software: PyCharm
 
 from functools import wraps
-from sanic import Request, text
+from sanic import Request, response
 import jwt
 from conf.settings import JWT
 
@@ -30,10 +30,10 @@ def login_required(wrapper):
         async def decorator_wrapper(request, *args, **kwargs):
             is_auth = check_toke(request)
             if is_auth:
-                response = mid(request, *args, **kwargs)
-                return response
+                res = mid(request, *args, **kwargs)
+                return res
             else:
-                return text("token无效", 401)
+                return response.json({"code": 401, "msg": "token is invalid"}, 200)
 
         return decorator_wrapper
 
